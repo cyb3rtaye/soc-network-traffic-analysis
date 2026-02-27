@@ -1,4 +1,11 @@
 # network-traffic-analysis
+
+## Quick links
+- **Full report:** [`report.md`](./report.md)
+- **Wireshark filters:** [`filters.md`](./filters.md)
+- **Timeline (SOC ticket style):** [`timeline.md`](./timeline.md)
+- **Evidence screenshots:** [`/screenshots`](./screenshots)
+
 # SOC Network Traffic Analysis (Home Lab)
 
 This project is part of my personal SOC portfolio where I practice real world blue team workflows: capturing traffic, identifying suspicious patterns, documenting findings and writing detection ideas.
