@@ -1,14 +1,22 @@
 # network-traffic-analysis
 
+# SOC Network Traffic Analysis (Home Lab)
+This project is part of my personal SOC portfolio where I practice real world blue team workflows: capturing traffic, identifying suspicious patterns, documenting findings and writing detection ideas.
+
+## MITRE ATT&CK
+![MITRE T1046](https://img.shields.io/badge/MITRE-T1046%20Network%20Service%20Discovery-0b3d91?style=flat)
+![MITRE T1021](https://img.shields.io/badge/MITRE-T1021%20Remote%20Services%20(potential)-0b3d91?style=flat)
+
+- Mapping details: [`MITRE_ATTACK_LAB-NT-RECON-02.md`](./MITRE_ATTACK_LAB-NT-RECON-02.md)
+
 ## Quick links
 - **Full report:** [`report.md`](./report.md)
 - **Wireshark filters:** [`filters.md`](./filters.md)
 - **Timeline (SOC ticket style):** [`timeline.md`](./timeline.md)
 - **Evidence screenshots:** [`/screenshots`](./screenshots)
 
-# SOC Network Traffic Analysis (Home Lab)
-
-This project is part of my personal SOC portfolio where I practice real world blue team workflows: capturing traffic, identifying suspicious patterns, documenting findings and writing detection ideas.
+## Lab architecture
+- Diagram + notes: [`architecture.md`](./architecture.md)
 
 ## What this case study covers
 In this investigation I captured internal network traffic between:
