@@ -1,35 +1,27 @@
-# Lab Architecture – SOC Network Traffic Analysis
+# Lab Architecture
 
-This repo uses a small isolated home-lab network to generate and analyze traffic like a SOC analyst.
+## Environment
 
-## Overview
-- **Ubuntu SOC workstation:** `192.168.1.3`
-- **Windows 10 endpoint:** `192.168.1.4`
-- **Virtualization:** VirtualBox
-- **Network:** Internal network `192.168.1.0/24`
+| System | Address | Function |
+|---|---:|---|
+| Ubuntu analysis system | `192.168.1.3` | Runs `tcpdump`, Wireshark and Nmap |
+| Windows 10 endpoint | `192.168.1.4` | Provides the target services for controlled scanning |
+| VirtualBox network | `192.168.1.0/24` | Isolated lab segment |
 
-## Diagram (Mermaid)
-> GitHub renders Mermaid diagrams automatically.
+## Diagram
 
 ```mermaid
 flowchart LR
-  A[Ubuntu SOC Workstation\n192.168.1.3\nTools: tcpdump, Wireshark, nmap] <-->|Internal Network 192.168.1.0/24| B[Windows 10 Endpoint\n192.168.1.4\nServices: 135 MSRPC, 139 NetBIOS, 445 SMB]
+    A[Ubuntu analysis system\n192.168.1.3\ntcpdump, Wireshark, Nmap]
+    B[Windows 10 endpoint\n192.168.1.4\nTCP 135, 139, 445 and dynamic RPC]
+    A <-->|VirtualBox lab network\n192.168.1.0/24| B
 ```
 
-## Diagram (ASCII – quick view)
+## Capture Runs
 
-```
-+---------------------------+           +---------------------------+
-| Ubuntu SOC Workstation    |           | Windows 10 Endpoint        |
-| 192.168.1.3               |  <---->   | 192.168.1.4                |
-| tcpdump / Wireshark / nmap|           | MSRPC(135) NetBIOS(139)    |
-|                           |           | SMB(445) + dynamic RPC     |
-+---------------------------+           +---------------------------+
-             \_______________________________________________/
-                         VirtualBox Internal Network
-                           192.168.1.0/24
-```
+- **Run 01:** baseline traffic capture
+- **Run 02:** controlled TCP SYN reconnaissance against the Windows endpoint
 
-## Notes
-- Run 01 establishes a baseline (normal traffic).
-- Run 02 introduces controlled reconnaissance (TCP SYN scanning) for detection practice.
+## Analysis Boundary
+
+The capture supports a network service discovery finding. It does not show credential use, exploitation or an interactive remote session.
